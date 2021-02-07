@@ -1,0 +1,89 @@
+﻿@model IEnumerable<AccountManagementApp2.Models.Account>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="~/js/knockout.js" type="text/javascript"></script>
+<script src="~/js/Details.js" type="text/javascript"></script>
+
+<h2>Details</h2>
+
+<button data-bind="click: function() { fetch()}">click me!</button>
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                FirstName
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                DateOfBirth
+            </th>
+            <th>
+                CreatedDate
+            </th>
+            <th>
+                LastUpdatedDate
+            </th>
+            <th>
+                DeletionDate
+            </th>
+            <th>
+                IsComplete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- ko foreach: accountArray -->
+            <tr>
+                <td>
+                    <span data-bind="text: firstName"></span>
+                </td>
+                <td>
+                    <span data-bind="text: lastName"></span>
+                </td>
+                <td>
+                    <span data-bind="text: email"></span>
+                </td>
+                <td>
+                    <span data-bind="text: gender"></span>
+                </td>
+                <td>
+                    <span data-bind="text: dateOfBirth"></span>
+                </td>
+                <td>
+                    <span data-bind="text: createdDate"></span>
+                </td>
+                <td>
+                    <span data-bind="text: lastUpdatedDate"></span>
+                </td>
+                <td>
+                    <span data-bind="text: deletionDate"></span>
+                </td>
+                <td>
+                    <span data-bind="text: isComplete"></span>
+                </td>
+            </tr>
+        <!-- /ko -->
+    </tbody>
+</table>
+@*<td>
+        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </td>*@

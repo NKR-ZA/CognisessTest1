@@ -1,0 +1,5 @@
+C:\Users\NgoatoRamontja\source\repos\Technical Test\AccountManagementApp2\obj\Debug\netcoreapp2.1\AccountManagementApp2.AssemblyInfoInputs.cache
+C:\Users\NgoatoRamontja\source\repos\Technical Test\AccountManagementApp2\obj\Debug\netcoreapp2.1\AccountManagementApp2.AssemblyInfo.cs
+C:\Users\NgoatoRamontja\source\repos\Technical Test\AccountManagementApp2\obj\Debug\netcoreapp2.1\AccountManagementApp2.csproj.CoreCompileInputs.cache
+C:\Users\NgoatoRamontja\source\repos\Technical Test\AccountManagementApp2\obj\Debug\netcoreapp2.1\AccountManagementApp2.RazorAssemblyInfo.cache
+C:\Users\NgoatoRamontja\source\repos\Technical Test\AccountManagementApp2\obj\Debug\netcoreapp2.1\AccountManagementApp2.RazorAssemblyInfo.cs
