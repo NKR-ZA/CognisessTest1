@@ -23,19 +23,20 @@ namespace AccountManagementApp2.Controllers
         {
             return View(await _context.Accounts.ToListAsync());
         }
+
         [HttpGet]
         public async Task<List<Account>> GetData()
         {
             var fetchedList = await _context.Accounts.ToListAsync();
             return fetchedList;
         }
+
         [HttpGet]
         public async Task<Account> GetData(int id) //returning one account which matches the id 
         {
             var fetchedList = await _context.Accounts.FirstOrDefaultAsync(n => n.Id == id);
             return fetchedList;
         }
-
 
         [HttpPost]
         public async Task<string> SaveData(string firstName, string lastName, string email, string gender, string dateOfBirth, bool isComplete )
@@ -52,87 +53,28 @@ namespace AccountManagementApp2.Controllers
             return "Okay";
             
         }
-        // GET: Accounts/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+
+        [HttpPut]
+        public async Task<string> EditData(int id, string firstName, string lastName, string email, string gender, string dateOfBirth, bool isComplete)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var account = await _context.Accounts.FindAsync(id);
-            if (account == null)
-            {
-                return NotFound();
-            }
-            return View(account);
-        }
-
-        // POST: Accounts/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email,Gender,DateOfBirth,CreatedDate,LastUpdatedDate,DeletionDate,IsComplete")] Account account)
-        {
-            if (id != account.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(account);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AccountExists(account.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(account);
-        }
-
-        // GET: Accounts/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var account = await _context.Accounts
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (account == null)
-            {
-                return NotFound();
-            }
-
-            return View(account);
-        }
-
-        // POST: Accounts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var account = await _context.Accounts.FindAsync(id);
-            _context.Accounts.Remove(account);
+            Account toEdit = _context.Accounts.FirstOrDefault(n=>n.Id==id);
+            toEdit.firstName = firstName;
+            toEdit.lastName = lastName;
+            toEdit.email = email;
+            toEdit.gender = gender;
+            toEdit.dateOfBirth = DateTime.Now;//Convert.ToDateTime(dateOfBirth);
+            toEdit.isComplete = isComplete;
+            _context.Update(toEdit);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return "Okay";
         }
 
-        private bool AccountExists(int id)
+        [HttpDelete]
+       public void DeleteData(int id)
         {
-            return _context.Accounts.Any(e => e.Id == id);
-        }
+            var objectToDelete = _context.Accounts.FirstOrDefault(n => n.Id == id);
+            _context.Remove(objectToDelete);
+             _context.SaveChanges();
+        } 
     }
 }
