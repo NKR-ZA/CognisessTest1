@@ -23,7 +23,10 @@ namespace AccountManagementApp2.Controllers
         {
             return View(await _context.Accounts.ToListAsync());
         }
-
+        public ActionResult Create()//route to create page, render view
+        {
+            return View();
+        }
         [HttpGet]
         public async Task<List<Account>> GetData()
         {
