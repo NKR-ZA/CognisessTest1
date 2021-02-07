@@ -1,76 +1,7 @@
-﻿@*@model AccountManagementApp2.Models.Account
-
-    @{
-        ViewData["Title"] = "Details";
-    }*@
-<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+﻿<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script src="~/js/knockout.js" type="text/javascript"></script>
 <script src="~/js/Details.js" type="text/javascript"></script>
 
 <h2>Details</h2>
 <span data-bind="text: test"></span>
 <button data-bind= "click: function() { fetch()}">click me!</button>
-@*<div>
-        <h4>Account</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.FirstName)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.LastName)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.LastName)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Gender)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Gender)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.DateOfBirth)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.DateOfBirth)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.CreatedDate)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.LastUpdatedDate)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.LastUpdatedDate)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.DeletionDate)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.DeletionDate)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.IsComplete)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.IsComplete)
-            </dd>
-        </dl>
-    </div>
-    <div>
-        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-        <a asp-action="Index">Back to List</a>
-    </div>*@

@@ -27,17 +27,20 @@ namespace AccountManagementApp2.Controllers
         {
             return View();
         }
+      
         [HttpGet]
-        public async Task<List<Account>> GetData()
+        public async Task<List<Account>> GetData(int id)
         {
-            var fetchedList = await _context.Accounts.ToListAsync();
-            return fetchedList;
-        }
+            List<Account> fetchedList = new List<Account>();
+            if (id > 0)
+            {
+                fetchedList = await _context.Accounts.Where(n => n.Id == id).ToListAsync();
+            }
+            else
+            {
+                fetchedList = await _context.Accounts.ToListAsync();
+            }
 
-        [HttpGet]
-        public async Task<Account> GetData(int id) //returning one account which matches the id 
-        {
-            var fetchedList = await _context.Accounts.FirstOrDefaultAsync(n => n.Id == id);
             return fetchedList;
         }
 
